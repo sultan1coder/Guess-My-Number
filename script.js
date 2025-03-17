@@ -10,7 +10,14 @@ document.querySelector(".guess").value = 23;
 console.log(document.querySelector(".guess").value);
 */
 
-document.querySelector(".check").addEventListener("click", function () {
-  const gues = document.querySelector(".guess").value;
-  console.log(gues)
-})
+const number = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = number;
+
+document.querySelector('.check').addEventListener('click', function () {
+  const gues = Number(document.querySelector('.guess').value);
+  console.log(gues, typeof gues);
+
+  if (!gues) {
+    document.querySelector('.message').textContent = '⛔ No Number!';
+  }
+});
